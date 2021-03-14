@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <title>E-commerce website</title>
+    <link rel="stylesheet" href="{% static "css/initial.css"%}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+  </head>
+  <body>
+    <div class="top-nav-bar">
+      <div class="search-box">
+        <i class="fa fa-bars" id="menu-btn" onclick="openmenu()"></i>
+        <i class="fa fa-times" id="close-btn" onclick="closemenu()"></i>
+
+        <a href="{% url 'homepage' %}"><img src="{% static "images/logo.png" %}" class="logo"></a>
+        <input type="text" class="form-control">
+        <span class="input-group-text"><i class="fa fa-search"></i></span>
+      </div>
+      <div class="menu-bar">
+        <ul>
+          <li><a href="#"><i class="fa fa-shopping-cart"></i>cart</a></li>
+
+          {% if user.is_authenticated %}
+
+            <li class="nav-item">
+              <a class="nav-link" href="/logout">Logout</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Welcome, {{user.username}}</a>
+            </li>
+
+          {% else %}
+
+            <li><a href="{% url 'register' %}">Sign Up</a></li>
+            <li><a href="{% url 'login' %}">Log In</a></li>
+
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
+
+      <footer>
+          <div class = "container">
+            <div class="row">
+              <div class="col-sm-2 col-md-3 item">
+                <h6 style = "color : white">CATEGORIES</h6>
+                <ul>
+                  <li><a herf="#">Home</a></li>
+                  <li><a herf="#">Crafts</a></li>
+                  <li><a herf="#">Home & Living</a></li>
+                  <li><a herf ="#">Jewelery & Accessories</a></li>
+                  <li><a herf="#">Clothing & Shoes</a></li>
+                  <li><a herf="#">Art</a></li>
+                </ul>
+              </div>
+              <div class="col-sm-4 col-md-3 item">
+                <h6 style = "color : white">GET TO KNOW US</h6>
+                <ul>
+                  <li><a herf="#">About Us</a></li>
+                  <li><a herf="#">Contact</a></li>
+                  <li><a herf="#">Shipping </a></li>
+                  <li><a herf ="#">Returns</a></li>
+                  <li><a herf="#">Store Policy</a></li>
+                  <li><a herf="#">FAQ's</a></li>
+                  <li><a herf="#">Ask us</a></li>
+                </ul>
+              </div>
+              <div class="col-lg-6 col-md-6 mb-lg-4">
+                <h5 style = "color : white">NEWSLETTER</h5>
+                  <div class="search-box">
+                    <input type="email" placeholder = "Enter your email address" class="form-control">
+                    <span class="input-group-text" style ="font-size : 22px;"><i class="fa fa-paper-plane fa-1x"></i></span>
+                  </div>
+                  <div class="social" style = "padding : 50px 10px;font-size : 35px;">
+                    <a class="#" href="#"><i class="fa fa-fw fa-twitter fa-1x"></i></a>
+                    <a href="#"><i class="fa fa-fw fa-facebook fa-1x"></i></a>
+                    <a href="#"><i class="fa fa-fw fa-instagram fa-1x"></i></a>
+                    <a href="#"><i class="fa fa-fw fa-google fa-1x"></i></a>
+                    <a href="#"><i class="fa fa-fw fa-linkedin fa-1x"></i></a>
+                  </div>
+              </div>
+            </div>
+          </div>
+      </footer>
+      <p style = "text-align : center; background-color: #3b3535; color : white; font-size: 20px;">© 2021 Crafts N' Creations All rights reserved.</p>
+
+
+      <script>
+        function openmenu()
+        {
+          document.getElementById("side-menu").style.display="block";
+          document.getElementById("menu-btn").style.display="none";
+          document.getElementById("close-btn").style.display="block";
+        }
+
+        function closemenu()
+        {
+          document.getElementById("side-menu").style.display="none";
+          document.getElementById("menu-btn").style.display="block";
+          document.getElementById("close-btn").style.display="none";
+        }
+      </script>
+
+      </body>
+    </html>

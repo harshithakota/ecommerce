@@ -230,3 +230,50 @@ body{
 .featured-categories img:hover{
   transform: scale(1.1);
 }
+
+
+
+/*--------------------footer---------------------------*/
+
+footer {
+    padding: 45px;
+    background-color: #3b3535;
+    border-top: 4px solid blue;
+}
+
+footer ul {
+    display: block;
+    float: left;
+}
+
+footer ul li {
+    list-style-type: none;
+    font-weight: thin;
+    font-size: 20px;
+    margin-right: 1px;
+    bottom: 0;
+    cursor: pointer;
+    text-decoration: none;
+    font-family: Ink Free, inkfree;
+      color: white;
+    text-align: left;
+}
+
+footer ul li:hover {
+    background-color: #3b3535;
+    color: white;
+}
+
+@media only screen and (max-width: 980px) {
+    footer {
+        width: 100%;
+    }
+    footer ul {
+        margin: 5px 0;
+        width: 100%;
+    }
+    footer ul li {
+        height: 45px;
+        width: 100%;
+    }
+}

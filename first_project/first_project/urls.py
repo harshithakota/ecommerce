@@ -22,6 +22,8 @@ urlpatterns = [
     url(r'^$',views.homepage,name='homepage'),
     url(r'^homepage/',include('first_app.urls')),
     url('admin/', admin.site.urls),
-    url(r'^register/',views.form_view,name='register'),
 
+    url(r'register/$',views.register_request,name='register'),
+    url(r'login/$',views.login_request,name='login'),
+    url(r'logout/$',views.logout_request,name='logout'),
 ]

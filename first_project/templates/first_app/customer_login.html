@@ -1,0 +1,16 @@
+{% extends 'first_app/layout/base.html' %}
+{% load bootstrap3 %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+    <div class="container">
+      <h1>Login</h1>
+      <form method="POST">
+        {% csrf_token %}
+        {{ login_form|crispy }}
+        <button class="btn btn-primary" type="submit">login</button>
+
+      </form>
+      <p class="text-center">Don't have an account? <a href="/customer_register">Create an account</a>.</p>
+    </div>
+        {% endblock %}
