@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bootstrap3',
     'crispy_forms',
-    'first_app'
+    'main'
 ]
 
 MIDDLEWARE = [
@@ -133,6 +133,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/product_images/'
+
 STATICFILES_DIRS = [
     STATIC_DIR,
 ]
+
+MEDIA_ROOT =  os.path.join(BASE_DIR,'static/product_images')

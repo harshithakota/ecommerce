@@ -17,13 +17,21 @@ from django.conf.urls import url
 from django.conf.urls import include
 from django.contrib import admin
 from django.urls import path
-from first_app import views
+from main import views
+
+from django.conf.urls.static import static
+from django.conf import settings
+
 urlpatterns = [
     url(r'^$',views.homepage,name='homepage'),
-    url(r'^homepage/',include('first_app.urls')),
+    url(r'^homepage/',include('main.urls')),
     url('admin/', admin.site.urls),
 
     url(r'register/$',views.register_request,name='register'),
     url(r'login/$',views.login_request,name='login'),
     url(r'logout/$',views.logout_request,name='logout'),
+    url(r'seller/$', views.FormView, name='seller'),
 ]
+
+
+urlpatterns += static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
