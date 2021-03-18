@@ -27,10 +27,15 @@ urlpatterns = [
     url(r'^homepage/',include('main.urls')),
     url('admin/', admin.site.urls),
 
-    url(r'register/$',views.register_request,name='register'),
+    url(r'signup/$',views.seller_register_request,name='seller_register'),
+    url(r'register/$',views.customer_register_request,name='register'),
     url(r'login/$',views.login_request,name='login'),
     url(r'logout/$',views.logout_request,name='logout'),
+
+
     url(r'seller/$', views.FormView, name='seller'),
+
+
 ]
 
 

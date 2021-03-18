@@ -9,6 +9,6 @@ urlpatterns = [
     url(r'^$',views.homepage,name='homepage'),
     #url(r'login/$',LogInView.as_view(template_name='main/login.html'),name='login'),
     #url(r'logout/$',LogoutView.as_view(),name='logout'),
-    url(r'register/$',views.register_request,name='customer_register')
+    #url(r'register/$',views.register_request,name='customer_register')
     #url("register", views.register_request, name="register")
 ]

@@ -1,11 +1,13 @@
 {% extends 'main/layout/base.html' %}
 {% load bootstrap3 %}
 {% block content %}
-
+{% load crispy_forms_tags %}
+<div class="container">
 <form method='post' enctype="multipart/form-data">
     {% csrf_token %}
+    {{ addproduct_form|crispy }}
     {{form.as_p}}
-    <input type="submit" value = "submit">
+    <button class="btn btn-primary" type="submit">Sign Up</button>
 </form>
-
+</div>
 {% endblock %}

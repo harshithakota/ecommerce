@@ -34,8 +34,29 @@
 
           {% else %}
 
-            <li><a href="{% url 'register' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li> 
+            <!--<li><a href="{% url 'register' %}">Sign Up</a></li>-->
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Signup</button>
+                <div class="dropdown-content">
+                  <a id="td" href="{% url 'register' %}">Customer Signup</a>
+                  <a id="td" href="{% url 'seller_register' %}">Seller Signup</a>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <div class="dropdown">
+                <button class="dropbtn">Login</button>
+                <div class="dropdown-content">
+                  <a id="td" href="{% url 'login' %}">Customer Login</a>
+                  <a id="td" href="{% url 'login' %}">Seller Login</a>
+                </div>
+              </div>
+            </li>
+
+
+            <!--<li><a href="{% url 'login' %}">Log In</a></li>-->
 
           {% endif %}
         </ul>

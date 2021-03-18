@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import  render, redirect
-from .forms import NewUserForm,Form
+from .forms import NewUserForm,Form, ProfileForm
 from django.contrib.auth import login,logout
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
@@ -11,18 +11,47 @@ def homepage(request):
     return render(request,'main/homepage.html')
 
 
+#@login_required
+#@transaction.atomic
+def customer_register_request(request):
+    if request.method == 'POST':
+        user_form = NewUserForm(request.POST)
+        if user_form.is_valid():
+            user = user_form.save()
+            user.profile.user_type = '1'
+            user.profile.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return redirect('login')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        user_form = NewUserForm()
 
-def register_request(request):
-	if request.method == "POST":
-		form = NewUserForm(request.POST)
-		if form.is_valid():
-			user = form.save()
-			login(request, user)
-			messages.success(request, "Registration successful." )
-			return redirect("homepage")
-		messages.error(request, "Unsuccessful registration. Invalid information.")
-	form = NewUserForm
-	return render (request=request, template_name="main/customer_register.html", context={"register_form":form})
+    return render(request, 'main/register.html', {
+        'user_form': user_form,
+        'user_type': 1
+    })
+
+
+def seller_register_request(request):
+    if request.method == 'POST':
+        user_form = NewUserForm(request.POST)
+        if user_form.is_valid():
+            user = user_form.save()
+            user.profile.user_type = '2'
+            print(user.profile.user_type)
+            user.profile.save()
+            messages.success(request, 'Your profile was successfully updated!')
+            return redirect('login')
+        else:
+            messages.error(request, 'Please correct the error below.')
+    else:
+        user_form = NewUserForm()
+
+    return render(request, 'main/register.html', {
+        'user_form': user_form,
+        'user_type': 2
+    })
 
 
 
@@ -43,7 +72,7 @@ def login_request(request):
 		else:
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
-	return render(request=request, template_name="main/customer_login.html", context={"login_form":form})
+	return render(request=request, template_name="main/login.html", context={"login_form":form})
 
 
 
@@ -67,7 +96,7 @@ def FormView(request):
         context = {
             'form':form,
         }
-    return render(request, 'main/seller_register.html', context)
+    return render(request, 'main/add_product.html', context={"addproduct_form":form})
 
 # def form_view(request):
 #     form = forms.RegisterForm()
