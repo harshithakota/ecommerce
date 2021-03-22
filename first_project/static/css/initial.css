@@ -277,6 +277,7 @@ body{
 /*--------------------footer---------------------------*/
 
 footer {
+    
     padding: 45px;
     background-color: #3b3535;
     border-top: 4px solid blue;
@@ -317,4 +318,20 @@ footer ul li:hover {
         height: 45px;
         width: 100%;
     }
+}
+
+
+
+
+/*---------------products page----------------------*/
+.box-element{
+	box-shadow:hsl(0, 0%, 80%) 0 0 16px;
+	background-color: #fff;
+	border-radius: 4px;
+	padding: 10px;
+}
+
+
+.product{
+	border-radius: 0 0 4px 4px;
 }

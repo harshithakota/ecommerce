@@ -35,6 +35,8 @@ urlpatterns = [
 
     url(r'seller/$', views.FormView, name='seller'),
 
+    url(r'products/$',views.products,name='products')
+
 
 ]
 

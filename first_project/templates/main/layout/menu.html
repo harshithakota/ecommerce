@@ -1,3 +1,14 @@
+{% if user.profile.user_type == 2 %}
+<div class="">
+
+<div class="side-menu" id="side-menu">
+  <ul>
+     <li><a id="td" href="{% url 'seller' %}">Add Product<i class="fa fa-angle-right"></i></a></li>
+     <li>Products<i class="fa fa-angle-right"></i></li>
+  </ul>
+</div>
+
+{% else %}
 
 <div class="side-menu" id="side-menu">
   <ul>
@@ -8,3 +19,5 @@
    <li>Art<i class="fa fa-angle-right"></i></li>
   </ul>
 </div>
+</div>
+{% endif %}

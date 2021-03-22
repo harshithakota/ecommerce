@@ -7,21 +7,7 @@ from django.db.models.signals import post_save
 from django.dispatch import receiver
 
 # Create your models here.
-# class Customer(models.Model):
-#     first_name = models.CharField(max_length=20)
-#     last_name  = models.CharField(max_length=30)
-#     class Meta:
-#         db_table = "customer"
 
-# class User(auth.models.User,auth.models.PermissionsMixin):
-#     user_type = models.IntegerField()
-#     def __str__(self):
-#         return "@{}".format(self.username)
-
-class UserForm(forms.ModelForm):
-    class Meta:
-        model = User
-        fields = ('first_name', 'last_name', 'email')
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)

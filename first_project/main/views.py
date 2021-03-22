@@ -5,6 +5,7 @@ from django.contrib.auth import login,logout
 from django.contrib import messages
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import AuthenticationForm
+from .models import *
 
 
 def homepage(request):
@@ -98,19 +99,8 @@ def FormView(request):
         }
     return render(request, 'main/add_product.html', context={"addproduct_form":form})
 
-# def form_view(request):
-#     form = forms.RegisterForm()
-#
-#     if request.method == 'POST':
-#         form =  forms.RegisterForm(request.POST)
-#
-#         #if form.is_valid():
-#         #    print("Validation success")
-#         #    print("NAME:"+ form.cleaned_data['name'])
-#         #    print("EMAIL:"+ form.cleaned_data['email'])
-#         #    print("TEXT:" +form.cleaned_data['text'])
-#         if form.is_valid():
-#             form.save(commit=True)
-#             return redirect('homepage')
-#
-#     return render(request,'main/register.html',{'form':form})
+
+def products(request):
+    products = FormModel.objects.all()
+    context = {'products':products}
+    return render(request,'main/products.html',context)
