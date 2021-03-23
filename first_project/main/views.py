@@ -100,7 +100,7 @@ def FormView(request):
     return render(request, 'main/add_product.html', context={"addproduct_form":form})
 
 
-def products(request):
-    products = FormModel.objects.all()
+def products(request,pk):
+    products = FormModel.objects.filter(category=pk)
     context = {'products':products}
     return render(request,'main/products.html',context)

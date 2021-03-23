@@ -5,8 +5,9 @@
 <section class="header">
 {% include 'main/layout/menu.html' %}
     <div class="row">
+        {% if products|length > 0 %}
         {% for product in products %}
-        {% if product.category == 1 %}
+
         <div class="col-lg-4">
             <img class="thumbnail" width="343" height="330" src="{{product.img.url}}">
             <div class="box-element product">
@@ -20,8 +21,10 @@
             </div>
         </div>
 
-        {% endif %}
         {% endfor %}
+        {% else %}
+        <h3><b>No products found</b></h3>
+        {% endif %}
     </div>
 </section>
 {% endblock %}
