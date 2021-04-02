@@ -37,6 +37,10 @@ urlpatterns = [
 
     path('products/<str:pk>/', views.products, name='products'),
 
+    url(r'cart/$',views.cart,name='cart'),
+    url(r'checkout/$',views.checkout,name='checkout'),
+
+
 
 ]
 

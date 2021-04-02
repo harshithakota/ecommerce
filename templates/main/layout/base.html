@@ -21,7 +21,7 @@
       </div>
       <div class="menu-bar">
         <ul>
-          <li><a href="#"><i class="fa fa-shopping-cart"></i>cart</a></li>
+          <li><a href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i>cart</a></li>
 
           {% if user.is_authenticated %}
 

@@ -90,7 +90,7 @@ def FormView(request):
         form = Form(request.POST or None, request.FILES or None)
         if form.is_valid():
             form.save()
-            return HttpResponse('Your review has been taken')
+            return redirect("homepage")
 
     else:
         form = Form()
@@ -104,3 +104,11 @@ def products(request,pk):
     products = FormModel.objects.filter(category=pk)
     context = {'products':products}
     return render(request,'main/products.html',context)
+
+
+def cart(request):
+    return render(request,'main/cart.html')
+
+
+def checkout(request):
+    return render(request,'main/checkout.html')
