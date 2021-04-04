@@ -109,6 +109,14 @@ def products(request,pk):
     return render(request,'main/products.html',context)
 
 
+def detail(request,pk):
+    products = Product.objects.filter(id=pk)
+    context = {'products':products}
+    return render(request,'main/details.html',context)
+
+
+
+
 def cart(request):
 
 	if request.user.is_authenticated:

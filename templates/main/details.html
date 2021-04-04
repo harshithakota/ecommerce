@@ -1,0 +1,38 @@
+{% extends 'main/layout/base.html' %}
+{% load bootstrap3 %}
+{% block content %}
+{% load static %}
+
+{% for product in products %}
+<section class="single-product">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-5">
+                <img width="343" height="330" src="{{product.img.url}}">
+            </div>
+
+            <div class="col-md-7">
+                <h2 id="product-title">{{product.name}}</h2>
+                <p id="product-title" class="price">Rs {{product.price}}</p>
+                <p id="product-title"><b>Seller Name:</b> {{product.seller}}</p>
+                <p id="product-title"><b>Availability:</b> In Stock</p>
+                <p id="product-title"><b>Condition:</b> New</p>
+                <button type="button" id="product-title" class="btn btn-primary">Add to Cart</button>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<section class="product-description">
+    <div class="container">
+        <h6>Product Description</h6>
+        <p>{{product.description}}</p>
+        <hr>
+    </div>
+
+</section>
+{% endfor %}
+{% endblock %}

@@ -377,3 +377,44 @@ footer ul li:hover {
 .hidden{
     display: none!important
 }
+
+
+
+/*----------------------product-details-------------------------------*/
+.single-product{
+    margin-top: 70px;
+}
+
+#product-title{
+    margin-left: -18%;
+}
+
+.single-product .price{
+    /* color: blue; */
+    font-size: 26px;
+    font-weight: bold;
+    padding-top: 20px;
+}
+
+
+.single-product .btn-primary{
+    background: blue;
+    font-size: 15px;
+    margin-left: 20px;
+    box-shadow:none;
+}
+
+.product-description h6{
+    font-size: 20px;
+    margin-top: 50px;
+    color:blue;
+}
+
+.product-description p{
+    margin-top: 25px;
+    margin-bottom: 35px;
+}
+
+.product-description hr{
+    margin-bottom: 50px;
+}

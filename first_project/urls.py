@@ -36,6 +36,8 @@ urlpatterns = [
     url(r'seller/addproduct/$', views.add_product, name='addproduct'),
 
     path('products/<str:pk>/', views.products, name='products'),
+    path('detail/<str:pk>/', views.detail, name='detail'),
+    # url(r'details/$',views.product_detail,name='details'),
 
     url(r'cart/$',views.cart,name='cart'),
     url(r'checkout/$',views.checkout,name='checkout'),
