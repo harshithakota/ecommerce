@@ -33,13 +33,13 @@ urlpatterns = [
     url(r'logout/$',views.logout_request,name='logout'),
 
 
-    url(r'seller/$', views.FormView, name='seller'),
+    url(r'seller/addproduct/$', views.add_product, name='addproduct'),
 
     path('products/<str:pk>/', views.products, name='products'),
 
     url(r'cart/$',views.cart,name='cart'),
     url(r'checkout/$',views.checkout,name='checkout'),
-
+    url(r'update_item/$',views.updateItem,name='update_item')
 
 
 ]

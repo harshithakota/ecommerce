@@ -8,6 +8,25 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" ></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
+    <script type="text/javascript">
+        var user = '{{ request.user }}'
+        function getToken(name) {
+		    var cookieValue = null;
+		    if (document.cookie && document.cookie !== '') {
+		        var cookies = document.cookie.split(';');
+		        for (var i = 0; i < cookies.length; i++) {
+		            var cookie = cookies[i].trim();
+		            // Does this cookie string begin with the name we want?
+		            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+		                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+		                break;
+		            }
+		        }
+		    }
+		    return cookieValue;
+		}
+		var csrftoken = getToken('csrftoken')
+    </script>
   </head>
   <body>
     <div class="top-nav-bar">
@@ -22,6 +41,7 @@
       <div class="menu-bar">
         <ul>
           <li><a href="{% url 'cart' %}"><i class="fa fa-shopping-cart"></i>cart</a></li>
+          
 
           {% if user.is_authenticated %}
 
@@ -129,5 +149,6 @@
         }
       </script>
 
+      <script type="text/javascript" src="{% static 'javascript/cart.js' %}"></script>
       </body>
     </html>
