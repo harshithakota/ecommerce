@@ -18,7 +18,7 @@
                 <p id="product-title"><b>Seller Name:</b> {{product.seller}}</p>
                 <p id="product-title"><b>Availability:</b> In Stock</p>
                 <p id="product-title"><b>Condition:</b> New</p>
-                <button type="button" id="product-title" class="btn btn-primary">Add to Cart</button>
+                <button data-product={{product.id}} data-action="add" class="btn btn-outline-secondary add-btn update-cart" type="button" id="product-title" class="btn btn-primary">Add to Cart</button>
             </div>
 
         </div>
