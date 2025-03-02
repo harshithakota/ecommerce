@@ -1,1 +1,1 @@
-# ecommerce website
+# ecommerce website for handmade products
